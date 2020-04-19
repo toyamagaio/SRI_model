@@ -2,12 +2,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class SRI:
-    def __init__(self, beta, gamma, beta_after,gamma_after, gamma_cllps=0.02, I_threshold=1.,EmeDecDay=100,delta_t=1.,LastDay=1000):
-       #beta_after : after    
+    def __init__(self, beta, gamma, beta_after,gamma_after, gamma_cllps=0.02, I_threshold=1.,EmeDecDay=100,LastDay=1000):
+       #beta  : Infection rate
+       #gamma : Recovery rate
+       #beta_after, gamma_after : params after enmergency decliation day 
+       #gamma_cllps : if medical collapse happened
+       #I_threshold : Threshold of medical collapse
        self.S_ini=1. 
        self.I_ini=0.00001
        self.R_ini=0.
 
+       delta_t=1.
        S = self.S_ini 
        I = self.I_ini 
        R = self.R_ini 

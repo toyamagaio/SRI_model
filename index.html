@@ -1,0 +1,47 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+ <title>Gaio's page</title>
+</head>
+<h1>SRI model</h1>
+参考:<a href="https://sites.google.com/tohoku.ac.jp/nue-sirtest" target="top">中村哲教授によるgoogle site page(東北大IDが必要)</a><br>
+常微分方程式による簡単なシミュレーション。定量性はない。<br>
+S:未感染<br>
+I:感染<br>
+R:回復（または死亡）<br>
+の3つの状態のみをとると仮定。(SRI model: W. O. Kermack and A. G. McKendrick (1927). “A Contribution to the Mathematical Theory of Epidemics”. Proc. Roy. Soc. of London. Series A 115 (772): 700-721.)<br>
+人の流入などは考えない。<br>
+このモデルは次の連立微分方程式で表現される。<br>
+<p><img src="png/eq.png" width="415" height="286" align ="top" alt = "equation" ><br>
+βは感染率、γは回復率を表し、γの逆数は感染期間が指数関数に従うときの平均値に相当する。<br>
+βIが感染力を表す。<br>
+なおこのモデルでは感染が確認され、隔離状態にある人は感染力を持たないため、Rに含まれる。<br>
+自覚症状がないまま感染し、市中で感染源となる人がIである。<br>
+
+初期条件としてS(0)=1, I(0)=0.00001を与え、この連立微分方程式を数値計算で解いた。（解析的に解くのは難しい。）<br>
+</p><br>
+<p><img src="png/case1.png" width="415" height="286" align ="top" alt = "case1" ><br>
+case1:非常事態宣言なし、医療崩壊も起こらない (β=0.3, γ=0.07)<br>
+いわゆる集団免疫の獲得により事態が収束する場合に相当する。<br>
+</p>
+<p><img src="png/case2.png" width="415" height="286" align ="top" alt = "case2" ><br>
+case2:非常事態宣言なし、医療崩壊を起こしたとき (β=0.3, γ=0.07→γ=0.02)<br>
+I=0.1で医療崩壊を起こしγが0.02に低下すると仮定した。<br>
+</p>
+<p><img src="png/case3.png" width="415" height="286" align ="top" alt = "case3" ><br>
+case3:非常事態宣言をしたが、接触率の低下が十分でない場合。 (β=0.3, γ=0.07→β=0.24)<br>
+35日目に非常事態宣言を発令し、βが0.24まで低下した場合。case1とほぼ変わらない。<br>
+</p>
+<p><img src="png/case4.png" width="415" height="286" align ="top" alt = "case4" ><br>
+case4:非常事態宣言をしたが、接触率の低下が十分でない場合。 (β=0.3, γ=0.07→β=0.15)<br>
+35日目に非常事態宣言を発令し、βが0.15まで低下した場合。ピークが遅れ、医療崩壊の危険性が下がっている。<br>
+</p>
+<p><img src="png/case5.png" width="415" height="286" align ="top" alt = "case5" ><br>
+case5:非常事態宣言をし、接触率が十分低下した場合。 (β=0.3, γ=0.07→β=0.06)<br>
+case4との違いは明らか。<br>
+</p>
+
+<br><br>
+β=接触数ではないが、感染率を50%減らした時と80%まで低下させたときの振る舞いの違いはあきらか。
+
+<body>
